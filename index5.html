@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta http-equiv="refresh" content="200">
+  <link rel="icon" href="لوغو .jpg" type="image/png">
+  <title>إنجازات مملكة ماستر</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@500;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href=" https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css " />
+
+  <!-- AOS Animation CSS -->
+  <link href="https://unpkg.com/aos @2.3.4/dist/aos.css" rel="stylesheet" />
+
+  <style>
+    /* =================== */
+    /* == ألوان التصميم == */
+    /* =================== */
+
+    :root {
+      --main-color: #EAD9C5;
+      --hover-color: #CBB8A5;
+      --dark-bg: #2A1E16;
+      --card-bg: #3B2A20;
+      --card-hover-bg: #4A3A30;
+      --card-border: #CBB8A5;
+      --card-hover-border: #D4C4A5;
+      --text-muted: #CBB8A5;
+      --footer-text: #CBB8A5;
+      --footer-border: #5A3E2B;
+    }
+
+    /* الخط العام */
+    body {
+      margin: 0;
+      font-family: 'Tajawal', sans-serif;
+      background-color: var(--dark-bg);
+      color: var(--main-color);
+      transition: all 0.4s ease;
+      padding-top: 90px; /* للهيدر الثابت */
+    }
+
+    .dark-mode {
+      background-color: var(--dark-bg);
+      color: var(--main-color);
+    }
+
+    .light-mode {
+      background-color: #EFE6D8;
+      color: #5A3E2B;
+    }
+
+    /* ===== Header ===== */
+    header {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 100%;
+      background-color: #3B2A20;
+      padding: 14px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.6);
+      flex-wrap: wrap;
+    }
+
+    .light-mode header {
+      background-color: #FFFFFF;
+      box-shadow: 0 6px 14px rgba(90,62,43,0.25);
+    }
+
+    .header-title {
+      text-align: center;
+      flex: 1 1 100%;
+      margin-bottom: 8px;
+    }
+
+    .header-title p {
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 4px;
+    }
+
+    .header-subtitle {
+      font-size: 12px;
+      color: #CBB8A5;
+    }
+
+    .light-mode .header-subtitle {
+      color: #7A5C45;
+    }
+
+    .header-actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: center;
+      flex: 1 1 100%;
+    }
+
+    .header-actions a,
+    .toggle-btn {
+      padding: 8px 14px;
+      border-radius: 20px;
+      font-size: 12px;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: 0.3s;
+      white-space: nowrap;
+    }
+
+    .whatsapp-header {
+      background-color: #25D366;
+      color: #fff;
+    }
+
+    .whatsapp-header:hover {
+      background-color: #1EBE5D;
+    }
+
+    .toggle-btn {
+      background-color: #CBB8A5;
+      color: #2A1E16;
+    }
+
+    .light-mode .toggle-btn {
+      background-color: #5A3E2B;
+      color: #fff;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 40px 20px;
+    }
+
+    .intro-section {
+      text-align: center;
+      margin-bottom: 60px;
+      padding: 0 20px;
+    }
+
+    .intro-section h2 {
+      font-size: 2.2em;
+      color: var(--main-color);
+      margin-bottom: 20px;
+    }
+
+    .intro-text {
+      font-size: 1.1em;
+      max-width: 800px;
+      margin: auto;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    .light-mode .intro-text {
+      color: #7A5C45;
+    }
+
+    .achievement-category {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .achievement-category h2 {
+      font-size: 2em;
+      margin-bottom: 20px;
+      color: var(--main-color);
+    }
+
+    .achievements-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+    }
+
+    .achievement-card {
+      background-color: var(--card-bg);
+      border: 2px solid var(--card-border);
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 6px 16px rgba(255, 215, 0, 0.08);
+      transition: all 0.3s ease;
+      text-align: center;
+    }
+
+    .light-mode .achievement-card {
+      background-color: #FFFFFF;
+      border-color: #5A3E2B;
+      box-shadow: 0 6px 16px rgba(90,62,43,0.25);
+    }
+
+    .achievement-card:hover {
+      transform: translateY(-6px);
+      background-color: var(--card-hover-bg);
+      border-color: var(--card-hover-border);
+      box-shadow: 0 8px 20px rgba(255, 215, 0, 0.2);
+    }
+
+    .achievement-icon {
+      font-size: 2.5em;
+      color: var(--main-color);
+      margin-bottom: 15px;
+    }
+
+    .achievement-title {
+      font-size: 1.4em;
+      color: var(--main-color);
+      margin: 0;
+    }
+
+    .achievement-desc {
+      margin-top: 10px;
+      font-size: 0.95em;
+      color: var(--text-muted);
+    }
+
+    .light-mode .achievement-desc {
+      color: #7A5C45;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+      color: var(--footer-text);
+      border-top: 1px solid var(--footer-border);
+      margin-top: 60px;
+    }
+
+    .home-button {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: var(--main-color);
+      color: #000;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+      box-shadow: 0 4px 10px rgba(203, 184, 165, 0.3);
+      transition: all 0.3s ease;
+    }
+
+    .home-button:hover {
+      background-color: var(--hover-color);
+      transform: scale(1.05);
+    }
+
+    /* ===== Nav Menu ===== */
+    .nav-menu {
+      position: fixed;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 999;
+    }
+
+    .hamburger {
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .hamburger span {
+      width: 30px;
+      height: 3px;
+      background-color: #EAD9C5;
+      transition: 0.3s;
+    }
+
+    .light-mode .hamburger span {
+      background-color: #5A3E2B;
+    }
+
+    .menu {
+      display: none;
+      position: absolute;
+      right: 40px;
+      top: 0;
+      background-color: #3B2A20;
+      padding: 10px;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+    }
+
+    .light-mode .menu {
+      background-color: #FFFFFF;
+      box-shadow: 0 4px 10px rgba(90,62,43,0.25);
+    }
+
+    .menu a {
+      display: block;
+      padding: 8px 12px;
+      color: #EAD9C5;
+      text-decoration: none;
+      border-bottom: 1px solid #CBB8A5;
+    }
+
+    .light-mode .menu a {
+      color: #5A3E2B;
+      border-bottom: 1px solid #7A5C45;
+    }
+
+    .menu a:last-child {
+      border-bottom: none;
+    }
+  </style>
+</head>
+<body class="dark-mode" data-aos-easing="ease" data-aos-duration="600" data-aos-delay="0">
+  <header>
+    <div class="header-title">
+      <p> اقـلـيـم ارايز</p>
+      <span class="header-subtitle">الإنجازات التي حققها الاقليم حتى الآن!</span>
+    </div>
+
+    <div class="header-actions">
+      <a href="index.html" class="home-button">
+        <i class="fas fa-home"></i> الصفحة الرئيسية
+      </a>
+      <button class="toggle-btn" onclick="toggleMode()">☀️ نهاري</button>
+    </div>
+  </header>
+
+  <nav class="nav-menu">
+    <div class="hamburger" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <div class="menu" id="menu">
+      <a href="index2.html">صفحة النقابات</a>
+      <a href="index3.html">صفحة المساهمين</a>
+      <a href="index4.html">صفحة النواب</a>
+      
+    </div>
+  </nav>
+
+  <div class="container">
+    <!-- مقدمة عن الإنجازات -->
+    <div class="intro-section" data-aos="fade-up">
+      <h2>🪶 إنجازات اقليم ارايز</h2>
+      <p class="intro-text">
+        من تاريخ شهر نوفمبر سنة 2025 حققت اقليم ارايز الإنجازات التاليه:
+        <br><br>
+       
+      </p>
+    </div>
+
+    <!-- قائمة الإنجازات -->
+    <div class="achievement-category" data-aos="fade-up">
+      <h2>🏅 إنجازات الاقليم</h2>
+      <div class="achievements-grid">
+
+        <!-- إنجاز 1 -->
+        <div class="achievement-card" data-aos="fade-up">
+          <div class="achievement-icon"><i class="fas fa-trophy"></i></div>
+          <h3 class="achievement-title">مشرف +230</h3>
+          <p class="achievement-desc">وصلت اقليم ارايز إلى +230 مشرف في 3 اشهر فقط!</p>
+        </div>
+
+        <!-- إنجاز 2 -->
+        <div class="achievement-card" data-aos="fade-up">
+          <div class="achievement-icon"><i class="fas fa-crown"></i></div>
+           <h3 class="achievement-title">افضل نقابة في المملكة</h3>
+          <p class="achievement-desc">هي نقابه مــاجـيــ🔮ــك</p>
+        </div>
+
+        <!-- إنجاز 3 -->
+        <div class="achievement-card" data-aos="fade-up">
+          <div class="achievement-icon"><i class="fas fa-medal"></i></div>
+          <h3 class="achievement-title">افضل اقليم في مملكة ايرفانيا  </h3>
+          <p class="achievement-desc"> اكثر اقليم فيه نقابات واكثر اقليم يوجد به مشرفين </p>
+        </div>
+
+        <!-- إنجاز 4 -->
+        <div class="achievement-card" data-aos="fade-up">
+          <div class="achievement-icon"><i class="fas fa-users"></i></div>
+          <h3 class="achievement-title">10 نقابة نشطة</h3>
+          <p class="achievement-desc"> توجد في اقليم ارايز 10 نقابه نشطة وقوية</p>
+        </div>
+
+        <!-- إنجاز 5 -->
+        <div class="achievement-card" data-aos="fade-up">
+          <div class="achievement-icon"><i class="fas fa-flag-checkered"></i></div>
+          <h3 class="achievement-title">أول نقابة في المملكة</h3>
+          <p class="achievement-desc">هي نقابه جــوديــ🌫ــن</p>
+        </div>
+
+        <!-- إضافة المزيد من الإنجازات بنفس التنسيق -->
+
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 اقليم ارايز - جميع الحقوق محفوظة
+    <br>
+    مع تحيات المبرمج سونغ ملك الاقليم 
+  </footer>
+
+  <!-- JavaScript -->
+  <script src="https://unpkg.com/aos @2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init();
+
+    function toggleMode() {
+      const body = document.body;
+      if (body.classList.contains("dark-mode")) {
+        body.classList.remove("dark-mode");
+        body.classList.add("light-mode");
+        document.querySelector(".toggle-btn").textContent = "🌙 ليلي";
+      } else {
+        body.classList.remove("light-mode");
+        body.classList.add("dark-mode");
+        document.querySelector(".toggle-btn").textContent = "☀️ نهاري";
+      }
+    }
+
+    function toggleMenu() {
+      var menu = document.getElementById('menu');
+      if (menu.style.display === 'block') {
+        menu.style.display = 'none';
+      } else {
+        menu.style.display = 'block';
+      }
+    }
+  </script>
+</body>
+</html>
